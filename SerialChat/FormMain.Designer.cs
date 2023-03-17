@@ -128,7 +128,8 @@
             // 
             // rtbReceiveMsg
             // 
-            this.rtbReceiveMsg.BackColor = System.Drawing.SystemColors.Window;
+            this.rtbReceiveMsg.BackColor = System.Drawing.Color.Black;
+            this.rtbReceiveMsg.ForeColor = System.Drawing.Color.White;
             this.rtbReceiveMsg.Location = new System.Drawing.Point(51, 132);
             this.rtbReceiveMsg.Margin = new System.Windows.Forms.Padding(4);
             this.rtbReceiveMsg.Name = "rtbReceiveMsg";

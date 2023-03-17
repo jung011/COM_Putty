@@ -186,16 +186,25 @@ namespace SerialChat
         {
             string strkey = null;
             string strval = null;
-            strkey = "COM login:";
+            strkey = "login";
             strval = "root";
+            //string text = rtbReceiveMsg.Text;
+            string txtLastLine = null;
 
-            string txtLastLine = string.Empty;
-            int lastRow = rtbReceiveMsg.Lines.Count() - 1;
-            txtLastLine = rtbReceiveMsg.Lines[lastRow].ToString();
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new Action(delegate ()
+                {
+                    //int lastRow = rtbReceiveMsg.Lines.Count() - 1;
+                    //txtLastLine = rtbReceiveMsg.Lines[lastRow].ToString();
+                    txtLastLine = rtbReceiveMsg.Lines[rtbReceiveMsg.Lines.Length - 1];
+                }));
+            }
 
-            if (txtLastLine == strkey)
+            if (txtLastLine.Contains(strkey))
             {
                 SP1.Write(strval + "\n");
+                Thread.Sleep(100);
             }
         }
 
